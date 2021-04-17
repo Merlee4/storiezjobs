@@ -50,6 +50,7 @@ function JobsList({ url, image, title, company, location, duration, history }) {
         <div className="grid grid-cols-2 gap-2 w-9/12 mx-auto ">
             {data.map(job =>
                 <JobCard
+                    key={job.image}
                     image={job.image}
                     title={job.title}
                     location={job.location}

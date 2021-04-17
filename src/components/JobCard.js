@@ -18,7 +18,7 @@ function JobCard({ url, image, title, company, duration, location, router }) {
             <div className="justify-start">
                 <p className="font-medium">{title}</p>
                 <div className="flex justify-between items-center text-sm text-gray-700">
-                    <p>{company}</p>
+                    <p className="text-2xl">{company}</p>
                     <div className="flex items-center mr-2">
                         <p>{location}</p>
                         <LocationMarkerIcon className="h-4 ml-1 text-red-600" />

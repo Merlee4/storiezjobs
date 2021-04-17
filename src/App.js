@@ -5,7 +5,7 @@ import Job from './pages/Jobs';
 
 function App() {
   return (
-    <div className=" bg-blue-50 bg-opacity-50">
+    <div>
       <Router>
         <Switch>
           <Route exact path='/' component={Home} />

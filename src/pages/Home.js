@@ -51,8 +51,8 @@ function Home() {
                 <Card />
                 <div className="mt-10 bg-white p-2 rounded-sm">
                     <div className="flex gap-4  border-b mb-4">
-                        <Link to='/recent' className="border rounded py-2 px-3 my-5" style={{ color: recentLink }}>RECENT JOB</Link>
-                        <Link to='/feature' className="border rounded py-2 px-3 my-5" style={{ color: featureLink }}>FEATURE JOB</Link>
+                        <Link to='/recent' className="border rounded py-2 px-3 my-5 font-medium" style={{ color: recentLink }}>RECENT JOB</Link>
+                        <Link to='/feature' className="border rounded py-2 px-3 my-5 font-medium" style={{ color: featureLink }}>FEATURE JOB</Link>
                     </div>
                     <div className="flex flex-col">
                         <div>
