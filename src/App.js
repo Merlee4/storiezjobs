@@ -2,17 +2,22 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Job from './pages/Jobs';
 
+
 function App() {
   return (
-    <Router className="flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700">
-      <Switch>
-        <Route path='/' component={Home} />
-        <Route exact path='/jobs' component={Job} />
+    <div className=" bg-blue-50 bg-opacity-50">
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/recent' component={Home} />
+          <Route exact path='/feature' component={Home} />
+          {/* <Route exact path='/dash' component={Dash} /> */}
 
-        {/* Job */}
-        <Route path='/jobs/:id' component={Job} />
-      </Switch>
-    </Router>
+          {/* Job */}
+          <Route exact path='/jobs/:id' component={Job} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar'
 import Card from '../components/Card'
 import { Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
+import JobsList from '../components/JobsList'
 function Home() {
     const [recentLink, setRecentLink] = useState("#1d4ed8")
     const [featureLink, setFeatureLink] = useState("gray")
@@ -18,8 +19,8 @@ function Home() {
             colorLink()
         }
         return (
-            <div>
-                <h1>Recent</h1>
+            <div className="mx-auto">
+                <JobsList />
             </div>
         )
     }
@@ -35,7 +36,7 @@ function Home() {
         }
         return (
             <div>
-                Feature
+                <JobsList />
             </div>
         )
     }
@@ -48,16 +49,20 @@ function Home() {
             {/* Main */}
             <div className="w-8/12 mx-auto">
                 <Card />
-                <div className="mt-10 mx-auto ">
-                    <div className="flex gap-4 justify-center">
+                <div className="mt-10 bg-white p-2 rounded-sm">
+                    <div className="flex gap-4  border-b mb-4">
                         <Link to='/recent' className="border rounded py-2 px-3 my-5" style={{ color: recentLink }}>RECENT JOB</Link>
                         <Link to='/feature' className="border rounded py-2 px-3 my-5" style={{ color: featureLink }}>FEATURE JOB</Link>
                     </div>
-
-                    <Switch>
-                        <Route exact path='/feature' component={featureJobs} />
-                        <Route exact path='/recent' component={recentJobs} />
-                    </Switch>
+                    <div className="flex flex-col">
+                        <div>
+                            <Switch exact path="/recent" >
+                                <Route exact path='/recent' component={recentJobs} />
+                                <Route exact path='/feature' component={featureJobs} />
+                            </Switch>
+                        </div>
+                        <button className="my-4 hover:text-gray-500 transition duration-150">See More <b>2+</b></button>
+                    </div>
 
                 </div>
             </div>
