@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function ButtonWithIcon({ icon, text }) {
+function ButtonWithIcon({ icon, text, path }) {
     return (
-        <div className="flex items-center text-gray-500">
+        <Link to={path} className="flex items-center text-gray-500">
             {icon}
-            <p>{text}</p>
-        </div>
+            <p className="ml-2">{text}</p>
+        </Link>
     )
 }
 

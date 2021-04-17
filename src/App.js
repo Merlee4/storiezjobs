@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AllJobs from './pages/AllJobs';
 import Home from './pages/Home';
 import Job from './pages/Jobs';
-
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -14,7 +15,15 @@ function App() {
           {/* <Route exact path='/dash' component={Dash} /> */}
 
           {/* Job */}
+          <Route exact path='/jobs' component={AllJobs} />
           <Route exact path='/jobs/:id' component={Job} />
+          <Route exact path='/jobs/category/:id' component={Job} />
+
+          {/* User */}
+          <Route exact path='/u/:id' component={UserProfile} />
+          {/* Authnp */}
+          <Route exact path='/u/:id' component={UserProfile} />
+
         </Switch>
       </Router>
     </div>

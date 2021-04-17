@@ -1,10 +1,9 @@
 import React from 'react'
 import SideBar from '../components/SideBar'
 import NavBar from '../components/NavBar'
-import ProfileMainContent from '../components/ProfileMainContent'
+import AllJobsMainContent from '../components/AllJobsMainContent'
 
-function Jobs({ match }) {
-    const data = match.params
+function AllJobs({ match }) {
     console.log(match)
     return (
         <div>
@@ -18,11 +17,11 @@ function Jobs({ match }) {
                     <SideBar />
                 </div>
                 <div className="col-span-4 bg-white p-4">
-                    <ProfileMainContent />
+                    <AllJobsMainContent />
                 </div>
             </div>
         </div >
     )
 }
 
-export default Jobs
+export default AllJobs

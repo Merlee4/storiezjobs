@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import Header from '../components/Header'
 import NavBar from '../components/NavBar'
 import Card from '../components/Card'
-import { Route, Switch } from 'react-router'
-import { Link } from 'react-router-dom'
+import { Link, Route, Switch, useHistory } from 'react-router-dom'
 import JobsList from '../components/JobsList'
 function Home() {
     const [recentLink, setRecentLink] = useState("#1d4ed8")
     const [featureLink, setFeatureLink] = useState("gray")
+    const router = useHistory()
 
     const recentJobs = ({ match }) => {
         console.log(match)
@@ -15,7 +15,7 @@ function Home() {
             setRecentLink('#1d4ed8')
             setFeatureLink('gray')
         }
-        if (match.path === '/recent' || match.path === '/') {
+        if (match.path === '/home' || match.path === '/') {
             colorLink()
         }
         return (
@@ -61,12 +61,10 @@ function Home() {
                                 <Route exact path='/feature' component={featureJobs} />
                             </Switch>
                         </div>
-                        <button className="my-4 hover:text-gray-500 transition duration-150">See More <b>2+</b></button>
+                        <button className="my-4 hover:text-gray-500 transition duration-150" onClick={() => router.push('/jobs')}>See More <b>2+</b></button>
                     </div>
-
                 </div>
             </div>
-
         </div >
     )
 }
