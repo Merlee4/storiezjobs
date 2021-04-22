@@ -1,6 +1,7 @@
 import { BriefcaseIcon, LocationMarkerIcon, UserGroupIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import JobsList from './JobsList'
 import PrompModal from './PrompModal'
 
 function ProfileMainContent() {
@@ -39,10 +40,22 @@ function ProfileMainContent() {
                 <p className="text-sm text-red-700">not hiring</p>
             </div>
             <div className="rounded-lg border py-4 px-8 bg-white text-gray-700 mt-4">
-                <h1 className="text-2xl my-4 font-medium">About</h1>
+                <h1 className="text-2xl my-4 font-medium">About the Role</h1>
                 <p className="">A problem isn't truly solved until it's solved for all. Googlers build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.</p>
+                
+                <h1 className="text-xl my-4 font-medium">Requirements</h1>
+                <ul className="list-disc ml-8">
+                    <li>JavaScript</li>
+                    <li>TypeScript</li>
+                    <li>React.js</li>
+                    <li>Angular.js</li>
+                </ul>
+                <p>Must know one language and framework listed above</p>
 
                 <p className="py-4">Check out our career opportunities</p>
+                <div className="mx-auto">
+                    <JobsList />
+                </div>
                 <div className="flex justify-between gap-4">
                     <div className="rounded-lg border p-4 my-4 w-full">
                         <p className="text-sm">Contact info</p>

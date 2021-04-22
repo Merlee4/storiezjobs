@@ -1,6 +1,7 @@
 import { BriefcaseIcon, LocationMarkerIcon, UserGroupIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import JobsList from './JobsList'
 import PrompModal from './PrompModal'
 
 function UserProfileMainContent() {
@@ -36,7 +37,10 @@ function UserProfileMainContent() {
                 <h1 className="text-2xl my-4 font-medium">About</h1>
                 <p className="">A problem isn't truly solved until it's solved for all. Googlers build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.</p>
 
-                <p className="py-4">Check out our career opportunities</p>
+                <p className="py-4 text-xl font-semibold">Posts by Mwelwa Nkuta</p>
+                <div className="mx-auto">
+                    <JobsList />
+                </div>
                 <div className="flex justify-between gap-4">
                     <div className="rounded-lg border p-4 my-4 w-full">
                         <p className="text-sm">Contact info</p>
