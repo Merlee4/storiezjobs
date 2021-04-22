@@ -9,15 +9,7 @@ function Home() {
     const [featureLink, setFeatureLink] = useState("gray")
     const router = useHistory()
 
-    const recentJobs = ({ match }) => {
-        console.log(match)
-        const colorLink = () => {
-            setRecentLink('#1d4ed8')
-            setFeatureLink('gray')
-        }
-        if (match.path === '/home' || match.path === '/') {
-            colorLink()
-        }
+    const RecentJobs = () => {
         return (
             <div className="mx-auto">
                 <JobsList />
@@ -25,21 +17,7 @@ function Home() {
         )
     }
 
-    const featureJobs = ({ match }) => {
-        console.log(match)
-        const colorLink = () => {
-            setFeatureLink('#1d4ed8')
-            setRecentLink('gray')
-        }
-        if (match.path === '/feature') {
-            colorLink()
-        }
-        return (
-            <div>
-                <JobsList />
-            </div>
-        )
-    }
+    
     return (
         <div>
             <div className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-500">
@@ -51,15 +29,11 @@ function Home() {
                 <Card />
                 <div className="mt-10 bg-white p-2 rounded-sm">
                     <div className="flex gap-4  border-b mb-4">
-                        <Link to='/recent' className="border rounded py-2 px-3 my-5 font-medium" style={{ color: recentLink }}>RECENT JOB</Link>
-                        <Link to='/feature' className="border rounded py-2 px-3 my-5 font-medium" style={{ color: featureLink }}>FEATURE JOB</Link>
+                        <h1 className="border rounded py-2 px-3 my-5 font-medium text-blue-700">RECENT JOBS</h1>
                     </div>
                     <div className="flex flex-col">
                         <div>
-                            <Switch exact path="/recent" >
-                                <Route exact path='/recent' component={recentJobs} />
-                                <Route exact path='/feature' component={featureJobs} />
-                            </Switch>
+                            <RecentJobs/>
                         </div>
                         <button className="my-4 hover:text-gray-500 transition duration-150" onClick={() => router.push('/jobs')}>See More <b>2+</b></button>
                     </div>

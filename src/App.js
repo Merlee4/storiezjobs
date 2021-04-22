@@ -3,6 +3,7 @@ import AllJobs from './pages/AllJobs';
 import Home from './pages/Home';
 import Job from './pages/Jobs';
 import UserProfile from './pages/UserProfile';
+import JobProfile from './pages/JobProfile';
 
 function App() {
   return (
@@ -21,8 +22,7 @@ function App() {
 
           {/* User */}
           <Route exact path='/u/:id' component={UserProfile} />
-          {/* Authnp */}
-          <Route exact path='/u/:id' component={UserProfile} />
+          <Route exact path='/u/:id/jobs' component={JobProfile} />
 
         </Switch>
       </Router>
