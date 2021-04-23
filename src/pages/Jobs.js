@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBar from '../components/SideBar'
 import NavBar from '../components/NavBar'
 import ProfileMainContent from '../components/ProfileMainContent'
+import axios from 'axios'
 
 function Jobs({ match }) {
-    const data = match.params
-    console.log(match)
+    const id = match.params.id
+    const [jobData, setJobData] = useState({})
+
+    useEffect(() => {
+        axios.get(`http://localhost:9000/job/${id}`)
+        .then(res => {
+            setJobData(res.data)
+        })
+    },[])
     return (
         <div>
             <div className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-500 shadow fixed top-0 left-0 right-0 w-full">
@@ -18,7 +26,7 @@ function Jobs({ match }) {
                     <SideBar />
                 </div>
                 <div className="col-span-4 bg-white p-4">
-                    <ProfileMainContent />
+                    <ProfileMainContent jobdata={jobData}/>
                 </div>
             </div>
         </div >

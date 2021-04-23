@@ -1,15 +1,25 @@
 import { BriefcaseIcon, LocationMarkerIcon, UserGroupIcon } from '@heroicons/react/outline'
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import JobsList from './JobsList'
 import PrompModal from './PrompModal'
 
-function ProfileMainContent() {
+function ProfileMainContent({ jobdata }) {
     const [Apply, setApply] = useState(false)
-
+    const [myJobs, setMyJobs] = useState([])
+    const job = jobdata
+    console.log(job)
     const setIsOpen = () => {
         setApply(false)
     }
+
+    useEffect(() => {
+        axios.get(`http://localhost:9000/job/${jobdata._id}`)
+        .then(res => {
+            setMyJobs(res.data)
+        })
+    },[])
     return (
         <div>
             <div className="">
@@ -17,13 +27,10 @@ function ProfileMainContent() {
                 <h1 className="text-2xl my-2 font-medium text-gray-800">Google</h1>
             </div>
             <div>
-                <div className="flex items-center gap-2">
-                    <BriefcaseIcon className="h-4" />
-                    <p>Google</p>
-                </div>
+                
                 <div className="flex items-center gap-2">
                     <LocationMarkerIcon className="h-4 gap-2" />
-                    <p>Lusaka, ZM</p>
+                    <p>{jobdata.location}</p>
                 </div>
             </div>
 
@@ -34,27 +41,26 @@ function ProfileMainContent() {
                     <div className="flex items-center gap-2">
                         <UserGroupIcon className="h-4" />
                         <p>Employees</p>
-                        <p className="font-medium">2+</p>
+                        <p className="font-medium">{job.employees}</p>
                     </div>
                 </div>
-                <p className="text-sm text-red-700">not hiring</p>
+                <p className="text-sm text-red-700">{job.available}</p>
             </div>
             <div className="rounded-lg border py-4 px-8 bg-white text-gray-700 mt-4">
                 <h1 className="text-2xl my-4 font-medium">About the Role</h1>
-                <p className="">A problem isn't truly solved until it's solved for all. Googlers build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.</p>
+                <p className="">{job.about}</p>
                 
                 <h1 className="text-xl my-4 font-medium">Requirements</h1>
                 <ul className="list-disc ml-8">
-                    <li>JavaScript</li>
-                    <li>TypeScript</li>
-                    <li>React.js</li>
-                    <li>Angular.js</li>
+                    {job.requirements.map(req => 
+                        <li>{req}</li>
+                    )}
                 </ul>
-                <p>Must know one language and framework listed above</p>
+                <p>{job.requirementsText}</p>
 
                 <p className="py-4">Check out our career opportunities</p>
                 <div className="mx-auto">
-                    <JobsList />
+                    <JobsList jobs={myJobs}/>
                 </div>
                 <div className="flex justify-between gap-4">
                     <div className="rounded-lg border p-4 my-4 w-full">

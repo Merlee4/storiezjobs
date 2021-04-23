@@ -1,23 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import NavBar from '../components/NavBar'
 import Card from '../components/Card'
 import { Link, Route, Switch, useHistory } from 'react-router-dom'
 import JobsList from '../components/JobsList'
+import axios from 'axios'
 function Home() {
-    const [recentLink, setRecentLink] = useState("#1d4ed8")
-    const [featureLink, setFeatureLink] = useState("gray")
-    const router = useHistory()
+    const [jobs, setJobs] = useState([])
 
-    const RecentJobs = () => {
+    useEffect(() => {
+        axios.get('http://localhost:9000')
+        .then(res => {
+            setJobs(res.data)
+            console.log('datar',{msg: res.data})
+        })
+    },[])
+    const router = useHistory()
+    const RecentJobs = ({ jobs }) => {
         return (
             <div className="mx-auto">
-                <JobsList />
+                <JobsList jobs={jobs}/>
             </div>
         )
     }
 
-    
     return (
         <div>
             <div className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-500">
@@ -33,7 +39,7 @@ function Home() {
                     </div>
                     <div className="flex flex-col">
                         <div>
-                            <RecentJobs/>
+                            <RecentJobs jobs={jobs}/>
                         </div>
                         <button className="my-4 hover:text-gray-500 transition duration-150" onClick={() => router.push('/jobs')}>See More <b>2+</b></button>
                     </div>
