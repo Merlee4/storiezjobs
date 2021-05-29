@@ -1,9 +1,9 @@
+import React from "react";
 import {
   BriefcaseIcon,
   ClockIcon,
   LocationMarkerIcon,
 } from "@heroicons/react/outline";
-import React from "react";
 import { useHistory } from "react-router-dom";
 
 function JobCard({ image, title, name, duration, location, id }) {

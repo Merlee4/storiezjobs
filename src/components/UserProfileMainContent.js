@@ -1,6 +1,6 @@
-import { BriefcaseIcon, LocationMarkerIcon, UserGroupIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { BriefcaseIcon, LocationMarkerIcon } from '@heroicons/react/outline'
 import JobsList from './JobsList'
 import PrompModal from './PrompModal'
 

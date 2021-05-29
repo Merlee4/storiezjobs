@@ -1,5 +1,5 @@
-import { LocationMarkerIcon } from "@heroicons/react/outline";
 import React from "react";
+import { LocationMarkerIcon } from "@heroicons/react/outline";
 import { useHistory } from "react-router-dom";
 
 function CompanyProfileCard() {

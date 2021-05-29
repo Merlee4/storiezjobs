@@ -1,6 +1,6 @@
-import { InformationCircleIcon } from '@heroicons/react/outline'
 import React from 'react'
 import Modal from 'react-modal'
+import { InformationCircleIcon } from '@heroicons/react/outline'
 
 function PrompModal({ isOpen, setIsOpen }) {
     return (

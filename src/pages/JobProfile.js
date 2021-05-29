@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
 import SideBar from '../components/SideBar'
 import NavBar from '../components/NavBar'
 import UserProfileMainContent from '../components/UserProfileMainContent'

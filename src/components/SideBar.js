@@ -1,6 +1,5 @@
 import React from 'react'
 import CompanyProfileCard from './CompanyProfileCard'
-import UserProfileCard from './UserProfileCard'
 
 function SideBar() {
     return (
@@ -11,5 +10,4 @@ function SideBar() {
 
     )
 }
-
 export default SideBar

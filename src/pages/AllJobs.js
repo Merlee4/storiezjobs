@@ -10,7 +10,6 @@ function AllJobs({ match }) {
             <div className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-500 shadow fixed top-0 left-0 right-0 w-full">
                 <NavBar />
             </div>
-
             {/* Main */}
             <div className="grid grid-cols-5 h-screen mt-16">
                 <div className="bg-white p-4">

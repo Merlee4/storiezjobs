@@ -1,7 +1,7 @@
-import { LocationMarkerIcon, UserGroupIcon } from "@heroicons/react/outline";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { LocationMarkerIcon, UserGroupIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import JobsList from "./JobsList";
 import PrompModal from "./PrompModal";
 

@@ -1,7 +1,6 @@
-import { BriefcaseIcon, LocationMarkerIcon } from '@heroicons/react/outline'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-
+import { BriefcaseIcon, LocationMarkerIcon } from '@heroicons/react/outline'
 
 function UserProfileCard() {
     const router = useHistory()
