@@ -8,6 +8,7 @@ import Card from "../components/Card";
 
 function Home() {
   const [jobs, setJobs] = useState([]);
+  const router = useHistory();
 
   useEffect(() => {
     axios.get("http://localhost:9000").then((res) => {
@@ -16,7 +17,6 @@ function Home() {
     });
   }, []);
 
-  const router = useHistory();
   const RecentJobs = ({ jobs }) => {
     return (
       <div className="mx-auto">
