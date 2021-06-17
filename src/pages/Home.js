@@ -1,35 +1,36 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import JobsList from "../components/JobsList";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Card from "../components/Card";
 
-function Home() {
-  const [jobs, setJobs] = useState([]);
+function Home({ jobs, match }) {
   const router = useHistory();
-
-  useEffect(() => {
-    axios.get("http://localhost:9000").then((res) => {
-      setJobs(res.data);
-      console.log("datar", { msg: res.data });
-    });
-  }, []);
-
-  const RecentJobs = ({ jobs }) => {
+  const RecentJobs = () => {
     return (
       <div className="mx-auto">
-        <JobsList jobs={jobs} />
+        {jobs.length > 0 ? (
+          <JobsList jobs={jobs.slice(1, 5)} />
+        ) : (
+          <h1 className="font-thin text-gray-700">
+            There are not jobs at the moment
+          </h1>
+        )}
       </div>
     );
   };
+
+  useEffect(() => {
+    //get search working
+    console.log(router.location);
+  }, [router]);
 
   return (
     <div>
       <div className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-500">
         <NavBar />
-        <Header />
+        <Header jobs={jobs.length} />
       </div>
       {/* Main */}
       <div className="w-8/12 mx-auto">
@@ -42,11 +43,16 @@ function Home() {
           </div>
           <div className="flex flex-col">
             <div>
-              <RecentJobs jobs={jobs} />
+              <RecentJobs />
             </div>
-            <button
-              className="my-4 hover:text-gray-500 transition duration-150"
-              onClick={() => router.push("/jobs")}>See More <b>2+</b></button>
+            {jobs.length > 0 && (
+              <button
+                className="my-4 hover:text-gray-500 transition duration-150"
+                onClick={() => router.push("/jobs")}
+              >
+                See More <b>{jobs.length - jobs.slice(1, 5).length}+</b>
+              </button>
+            )}
           </div>
         </div>
       </div>
